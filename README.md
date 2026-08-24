@@ -1,74 +1,93 @@
 # WebTinyOne
 
-Static **TinyOne** marketing landing page clone built with HTML and custom CSS (Font Awesome + Source Sans / Sriracha fonts). Single-page layout: hero, features grid, team, works, and supporting sections matching the provided PSD design.
+Static **TinyOne** one-page marketing clone: HTML + custom CSS, **Font Awesome 5**, **Source Sans Pro** and **Sriracha**, matching a provided PSD.
+
+**Author:** Mohammad Rohaan · [rohaan2802](https://github.com/rohaan2802)
 
 ---
 
-## Overview
+## Table of contents
 
-`WebTinyOne` recreates the TinyOne one-page template as a front-end practice project. The hero brand mark uses a fingerprint icon with the **tinyone** wordmark, followed by feature cards (responsive, layered PSD, icons, HTML/CSS, email template, and more), imagery, and team/work galleries.
-
----
-
-## Features
-
-- Full-bleed hero with CTA ("GET START") and social icon row
-- Features section with Font Awesome icon grid
-- Team and work galleries from `img/`
-- Custom webfonts (`SourceSansPro`, `Sriracha`) and Font Awesome 5 assets
-- Design source: `Design/Tinyone.psd`
+1. [Page structure (`index.html`)](#page-structure-indexhtml)
+2. [Assets](#assets)
+3. [How to run](#how-to-run)
+4. [Editing](#editing)
 
 ---
 
-## Repository structure
+## Page structure (`index.html`)
+
+Document title in the extract: `Assignment...`. Favicon: `img/lock.png`.
+
+### 1. Hero (`.main`)
+
+- Nav: hamburger (`fa-bars`), brand **fingerprint + “tinyone”** (`#active`), socials: Facebook, Twitter, Google+, Pinterest  
+- Headline: **“Inspire your inspiration”** + Lorem intro  
+- CTA: **GET START**  
+- Down arrow (`fa-long-arrow-alt-down`)
+
+### 2. Features
+
+- Heading **Tinyone features**  
+- CSS **grid** of items, including:
+
+| Icon | Card title |
+|------|------------|
+| tablet | Fully Responsive |
+| lemon | Fully Layered PSD |
+| folder | Font Awesome Icons |
+| code | HTML3 & CSS3 |
+| envelope | Email Template |
+| (further cards in the rest of the file) | team / works / etc. |
+
+Later sections in the full `index.html`: **team** portraits, **works** gallery, remaining marketing blocks — all wired to `img/` and `css/style.css`.
+
+No JavaScript framework; layout is CSS + Font Awesome classes (`fas` / `far` / `fab`).
+
+---
+
+## Assets
 
 ```text
-WebTinyOne/
-└── WebTinyOne/
-    ├── index.html
-    ├── css/
-    │   ├── style.css
-    │   ├── font-Awesome/...
-    │   └── fonts/SourceSansPro-*.ttf
-    ├── fonts/Sriracha-Regular.ttf
-    ├── img/                 # hero, team, work, icons
-    └── Design/Tinyone.psd
+WebTinyOne/WebTinyOne/
+├── index.html
+├── css/style.css
+├── css/font-Awesome/...
+├── css/fonts/SourceSansPro-*.ttf
+├── fonts/Sriracha-Regular.ttf
+├── img/                 # hero, team, work, icons
+└── Design/Tinyone.psd
 ```
+
+This workspace may flatten `index.html` + `style.css` at `WebTinyOne/`.
 
 ---
 
-## Build / run
-
-No build toolchain required.
+## How to run
 
 ```bash
-cd WebTinyOne/WebTinyOne
+cd WebTinyOne   # or WebTinyOne/WebTinyOne
 python -m http.server 5500
-# open http://localhost:5500/
+# http://localhost:5500/
 ```
 
-Or open `WebTinyOne/index.html` directly in a browser (Live Server recommended so font paths resolve consistently).
+Live Server is safer for font paths than `file://`.
 
 ---
 
-## Usage
+## Editing
 
-- Edit copy and section order in `index.html`.
-- Tune spacing, colors, and breakpoints in `css/style.css`.
-- Swap images under `img/` while keeping filenames or updating `src` attributes.
-- Use `Design/Tinyone.psd` as the visual reference when refining layout fidelity.
+- Copy: `index.html`  
+- Spacing/colors/breakpoints: `css/style.css`  
+- Pixel reference: `Design/Tinyone.psd`  
+- Swap `img/` files if filenames stay the same  
 
----
+**Gaps vs a production template:** hamburger has no JS drawer; CTA `href="#"`; lorem ipsum throughout.
 
-## Extending
-
-- Add a mobile nav drawer for the hamburger icon.
-- Extract CSS custom properties for brand colors/fonts.
-- Split long `index.html` sections into partials if moving to a static site generator.
-- Add subtle scroll animations while keeping the static, no-framework approach.
+Before commercial use, confirm TinyOne / font / icon licenses.
 
 ---
 
-## License
+## Author
 
-Practice clone of a public template design - verify TinyOne / asset licensing before commercial use.
+**Mohammad Rohaan** · [rohaan2802](https://github.com/rohaan2802)
