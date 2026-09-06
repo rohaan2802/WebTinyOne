@@ -394,7 +394,7 @@ textarea::placeholder {
     gap: 1rem;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .site-header {
     flex-wrap: wrap;
     padding-block: 1.25rem;
@@ -720,7 +720,7 @@ textarea::placeholder {
     flex-direction: column;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .pricing-grid {
     grid-template-columns: minmax(0, 1fr);
     max-width: 500px;
