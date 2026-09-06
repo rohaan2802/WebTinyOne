@@ -33,7 +33,7 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("click", (event) => {
   if (!event.target.closest(".site-header")) closeMenu();
 });
-matchMedia("(min-width: 761px)").addEventListener("change", () => closeMenu());
+matchMedia("(min-width: 961px)").addEventListener("change", () => closeMenu());
 document.querySelectorAll("[data-demo-form]").forEach((form) => {
   form.querySelectorAll("[disabled]").forEach((control) => {
     control.disabled = false;

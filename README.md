@@ -1,37 +1,64 @@
-# WebTinyOne
+# Tinyone · Responsive front-end study
 
-A responsive refresh of the original one-page design, recreated by **Mohammad Rohaan**.
+A recreation of the original Tinyone template by **Mohammad Rohaan**, refined into a responsive, accessible, interactive portfolio demonstration.
 
-[Live demo](https://rohaan2802.github.io/WebTinyOne/) · [Source](https://github.com/rohaan2802/WebTinyOne)
+[Explore the live site](https://rohaan2802.github.io/WebTinyOne/) · [Design decisions](CASE_STUDY.md) · [Verification notes](RESPONSIVE_QA.md)
+
+![Tinyone dark-theme desktop and mobile preview](docs/preview.webp)
+
+## A quick review
+
+1. Resize the page: content grids and navigation adapt to available space.
+2. Switch between dark and light themes, then reload to check the saved preference.
+3. Filter the work gallery and open an image. Try arrow keys, Tab, and Escape.
+4. Read **The build** section for project scope and implementation decisions.
+5. Enable reduced motion in your operating system: reveals and hover movement stop.
+
+## What this project demonstrates
+
+- **Responsive composition:** fluid headings, 18px baseline reading type, generous line spacing, and bounded reading widths. Navigation collapses before links become crowded.
+- **Interaction design:** persistent theme preference, gallery filters, accessible image viewing, back-to-top, reading progress, active section indication, and native expandable project details.
+- **Considered motion:** short one-time entrance/reveal animations and restrained hover feedback. Content is visible without animation or JavaScript; no continuous animation loop is required.
+- **Progressive enhancement:** no-JavaScript navigation and image links, a storage-blocked theme fallback, visible keyboard focus, and reduced-motion handling.
+- **Maintainable delivery:** plain HTML, CSS, and JavaScript with local assets, no framework runtime or application build step, and an included browser regression check.
 
 ## Run locally
 
-From this repository’s root, run `python -m http.server 5500`, then open http://localhost:5500. No build step, package install, or framework is required.
+From the repository root:
 
-## Dark theme and interactive features
+```sh
+python -m http.server 5500
+```
 
-- Dark is the default, including when JavaScript is disabled. A header control switches to the original light palette.
-- The preference is saved locally per site and applied before rendering; blocked browser storage falls back to a session-only switch.
-- Portfolio filters update the visible collection and announce the result count.
-- Images open in a responsive modal with next/previous controls, arrow keys, Tab cycling, Escape to close, and focus returned to the selected image. Without JavaScript or dialog support, image links open directly.
-- A back-to-top control appears after scrolling and respects reduced-motion preferences.
-- No new runtime dependencies or remote services are required. `theme-init.js` runs before styles; `enhancements.js` and the component stylesheet contain the optional interactions.
+Open http://localhost:5500. A static hosting service can serve the same files directly.
 
-## What changed
+## Source map
 
-- Fluid typography and bounded content widths, with content-driven grids for compact phones, tablets, desktop, and wide displays.
-- Mobile navigation with expanded state, Escape handling, focus management, and a usable no-JavaScript fallback.
-- Refined spacing, image proportions, visual hierarchy, color contrast, and visible keyboard focus.
-- Semantic sections, one page heading, image descriptions and dimensions, lazy loading, and reduced-motion support.
-- Real section links and a source-code download, replacing empty placeholder links.
-- Self-hosted fonts with corrected paths and swap rendering; no third-party runtime dependencies.
+| File | Responsibility |
+| --- | --- |
+| `index.html` | Semantic page, portfolio content, project notes, and native FAQ |
+| `css/style.css` | Base layout and original light palette |
+| `css/enhancements.css` | Dark palette, theme controls, gallery, and image viewer |
+| `css/presentation.css` | Larger typography, project section, and presentation effects |
+| `theme-init.js` | Applies the saved theme before styles render |
+| `script.js` | Navigation and local demo-form validation |
+| `enhancements.js` | Theme switch, filters, image viewer, and back-to-top |
+| `presentation.js` | Cancellable motion, reading progress, and current-section tracking |
+| `tests/responsive_check.py` | Layout and interaction regression checks |
 
-## Content and limitations
+## Verification
 
-This is a front-end template demonstration. Team content, portfolio captions, pricing, statistics, and testimonials are illustrative. Contact and newsletter forms validate input locally and explicitly report that nothing is sent or stored. A real backend or form service is required before collecting submissions.
+The browser regression check covers **24 widths from 240px to 3840px in both themes**, plus landscape, enlarged text, gallery keyboard behavior, theme persistence, native FAQ, reduced motion, and no-JavaScript navigation. See [the test notes](RESPONSIVE_QA.md) for exact scope and limitations.
 
-Existing images, fonts, and original design assets are retained. Review their respective licenses before commercial reuse. No analytics or payment processing is included.
+```sh
+python -m pip install playwright
+python tests/responsive_check.py
+```
 
-## Responsive verification
+An installed Google Chrome browser is required by default. Set `BROWSER_CHANNEL=msedge` to use an installed Microsoft Edge browser. Screenshots and results are written to the ignored `tests/artifacts/` directory.
 
-See `RESPONSIVE_QA.md` for the tested viewport matrix and interaction checks. Layouts adapt by available space rather than device brand. Finite browser tests cannot guarantee every physical device; test target devices before a production launch.
+## Attribution and scope
+
+This is an independent front-end study of an existing template, not a claim of an original commercial product or a shipped client project. Original imagery, fonts, and design attribution are retained. Review their respective licenses before commercial reuse.
+
+Team, portfolio, pricing, statistics, and testimonial content is illustrative. Contact and newsletter forms validate locally, but do not send or store submissions; production use needs a backend or form service. No analytics, checkout, or performance score is claimed. The tests do not certify every physical device or assistive technology.

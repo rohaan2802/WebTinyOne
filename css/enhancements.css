@@ -186,7 +186,7 @@ html {
     display: none;
   }
 }
-@media (max-width: 760px) {
+@media (max-width: 960px) {
   .site-header .brand {
     margin-right: auto;
   }

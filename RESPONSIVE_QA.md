@@ -4,11 +4,11 @@ Tested on 6 September 2026 using headless Google Chrome, with additional Microso
 
 ## Layout matrix
 
-The entire 22-width matrix passed in **both dark and light themes** (44 theme/width combinations per site).
+The entire 24-width matrix passed in **both dark and light themes** (48 theme/width combinations per site).
 
-- Widths (CSS pixels): 240, 280, 320, 360, 375, 390, 414, 520, 540, 600, 640, 760, 768, 820, 912, 1000, 1024, 1280, 1440, 1920, 2560, 3840.
+- Widths (CSS pixels): 240, 280, 320, 360, 375, 390, 414, 520, 540, 600, 640, 760, 768, 820, 912, 960, 961, 1000, 1024, 1280, 1440, 1920, 2560, 3840.
 - Landscape: 568 × 320, 844 × 390, 1024 × 768.
-- Enlarged root text: 200% at a 320px viewport.
+- Enlarged root text: 36px at a 320px viewport (twice the new 18px baseline).
 - No horizontal page overflow or elements extending beyond the viewport in the width matrix.
 - All content images decoded successfully; no browser script errors or local HTTP failures.
 - Full-page screenshots reviewed at phone, tablet, and desktop widths.
@@ -21,6 +21,15 @@ The entire 22-width matrix passed in **both dark and light themes** (44 theme/wi
 - Reduced-motion preference disables smooth scrolling.
 - Navigation remains available without JavaScript; demo form controls remain disabled to prevent accidental submission.
 - Tinyone contact and newsletter demos validate inputs and show accurate local-only status messages.
+
+## Presentation verification
+
+- Baseline body text is at least 18px with standard browser settings.
+- Updated mobile navigation is tested on both sides of the 960px breakpoint.
+- Native project FAQ opens from the keyboard.
+- Current-section navigation identifies the project section after scrolling.
+- Enabling reduced motion leaves no running reveal animation; content remains readable.
+- One-time motion, larger text, and new project notes are included in the dark/light layout matrix.
 
 ## New feature verification
 

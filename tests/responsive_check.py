@@ -9,7 +9,7 @@ from threading import Thread
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'tests'/'artifacts'
 OUT.mkdir(exist_ok=True)
-widths=[240,280,320,360,375,390,414,520,540,600,640,760,768,820,912,1000,1024,1280,1440,1920,2560,3840]
+widths=[240,280,320,360,375,390,414,520,540,600,640,760,768,820,912,960,961,1000,1024,1280,1440,1920,2560,3840]
 results={}
 class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, *args):
@@ -37,7 +37,7 @@ with sync_playwright() as p:
             assert page.locator('h1').count()==1
             broken=page.evaluate('''async()=>{const imgs=[...document.images].filter(i=>!i.classList.contains('viewer-image'));for(const i of imgs){i.loading='eager';}await Promise.all(imgs.map(i=>i.decode().catch(()=>{})));return imgs.filter(i=>!i.naturalWidth).map(i=>i.src)}''')
             assert not broken,(repo,broken)
-            if width<=760:
+            if width<=960:
                 menu=page.get_by_role('button',name='Menu')
                 assert not page.locator('#navigation').is_visible()
                 menu.click()
@@ -58,13 +58,26 @@ with sync_playwright() as p:
             checks.append({'theme':theme,'width':width})
         # Large text reflow simulates an enlarged default browser font.
         page.set_viewport_size({'width':320,'height':740})
-        page.add_style_tag(content='html{font-size:200%}')
+        page.add_style_tag(content='html{font-size:225%}')
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(repo,'200% text overflow')
         # Landscape, including a compact phone and tablet.
         for width,height in [(568,320),(844,390),(1024,768)]:
             page.set_viewport_size({'width':width,'height':height})
             page.goto(base)
             assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
+        # Professional presentation and native FAQ remain keyboard operable.
+        page.goto(base)
+        assert page.evaluate('parseFloat(getComputedStyle(document.body).fontSize)')>=18
+        summary=page.locator('.project-faq summary').first
+        summary.focus()
+        page.keyboard.press('Enter')
+        assert page.locator('.project-faq details').first.get_attribute('open') is not None
+        page.emulate_media(reduced_motion='reduce')
+        page.locator('#project-notes').scroll_into_view_if_needed()
+        page.wait_for_timeout(100)
+        assert page.locator('#navigation a[aria-current=location]').get_attribute('href')=='#project-notes'
+        assert page.evaluate('document.getAnimations().filter(a=>a.playState==="running").length')==0
+        page.emulate_media(reduced_motion='no-preference')
         # Theme preference survives reloads, and both controls have useful labels.
         page.goto(base)
         assert page.locator('html').get_attribute('data-theme')=='dark'
