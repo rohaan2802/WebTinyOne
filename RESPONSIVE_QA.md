@@ -4,6 +4,8 @@ Tested on 6 September 2026 using headless Google Chrome, with additional Microso
 
 ## Layout matrix
 
+The entire 22-width matrix passed in **both dark and light themes** (44 theme/width combinations per site).
+
 - Widths (CSS pixels): 240, 280, 320, 360, 375, 390, 414, 520, 540, 600, 640, 760, 768, 820, 912, 1000, 1024, 1280, 1440, 1920, 2560, 3840.
 - Landscape: 568 × 320, 844 × 390, 1024 × 768.
 - Enlarged root text: 200% at a 320px viewport.
@@ -20,9 +22,18 @@ Tested on 6 September 2026 using headless Google Chrome, with additional Microso
 - Navigation remains available without JavaScript; demo form controls remain disabled to prevent accidental submission.
 - Tinyone contact and newsletter demos validate inputs and show accurate local-only status messages.
 
+## New feature verification
+
+- Theme switches in both directions and persists after reloading.
+- With browser storage blocked, the page loads in dark mode and still switches themes.
+- Category filters show the expected subset and restore all eight projects.
+- Image viewer tested at 240px, 320px, 768px, 1440px, and 568 × 320 landscape: image decoding, next/previous arrows, constrained width, Tab focus containment, Escape closing, and focus restoration pass.
+- Back-to-top returns to the page start and focuses the brand link.
+- No-JavaScript mode keeps the dark theme, full gallery, and navigation; enhancement-only controls stay hidden.
+
 ## Automated accessibility audit
 
-Axe-core 4.10.3 in Microsoft Edge reported zero violations for WCAG 2 A/AA and WCAG 2.1 AA rule tags at 320px, 768px, and 1440px. This automated result is not a complete accessibility certification.
+Axe-core 4.10.3 in Microsoft Edge reported zero violations for WCAG 2 A/AA and WCAG 2.1 AA rule tags at 320px, 768px, and 1440px in both themes, with the normal page and the image viewer open (12 states per site). This automated result is not a complete accessibility certification.
 
 ## Run the regression check
 
