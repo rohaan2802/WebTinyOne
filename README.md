@@ -2,10 +2,13 @@
 
 A recreation of the original Tinyone template by **Mohammad Rohaan**, refined into a responsive, accessible, interactive portfolio demonstration.
 
-[Explore the live site](https://rohaan2802.github.io/WebTinyOne/) · [Design decisions](CASE_STUDY.md) · [Verification notes](RESPONSIVE_QA.md)
+## 🚀 Live Demo
+
+[https://rohaan2802.github.io/WebTinyOne/](https://rohaan2802.github.io/WebTinyOne/)
+
+[Design decisions](CASE_STUDY.md) · [Verification notes](RESPONSIVE_QA.md)
 
 ![Tinyone dark-theme desktop and mobile preview](docs/preview.webp)
-
 ## A quick review
 
 1. Resize the page: content grids and navigation adapt to available space.
