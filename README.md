@@ -8,6 +8,15 @@ A responsive refresh of the original one-page design, recreated by **Mohammad Ro
 
 From this repository’s root, run `python -m http.server 5500`, then open http://localhost:5500. No build step, package install, or framework is required.
 
+## Dark theme and interactive features
+
+- Dark is the default, including when JavaScript is disabled. A header control switches to the original light palette.
+- The preference is saved locally per site and applied before rendering; blocked browser storage falls back to a session-only switch.
+- Portfolio filters update the visible collection and announce the result count.
+- Images open in a responsive modal with next/previous controls, arrow keys, Tab cycling, Escape to close, and focus returned to the selected image. Without JavaScript or dialog support, image links open directly.
+- A back-to-top control appears after scrolling and respects reduced-motion preferences.
+- No new runtime dependencies or remote services are required. `theme-init.js` runs before styles; `enhancements.js` and the component stylesheet contain the optional interactions.
+
 ## What changed
 
 - Fluid typography and bounded content widths, with content-driven grids for compact phones, tablets, desktop, and wide displays.
