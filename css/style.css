@@ -12,15 +12,15 @@
 }
 :root {
   --font: Source, Arial, sans-serif;
-  --ink: #202020;
-  --muted: #626262;
-  --soft: #f7f7f2;
-  --accent-text: #595019;
-  --focus: #2466bf;
-  --button-bg: #202020;
+  --ink: #0f172a;
+  --muted: #1e293b;
+  --soft: #eef2ff;
+  --accent-text: #312e81;
+  --focus: #1d4ed8;
+  --button-bg: #0f172a;
   --button-text: #fff;
-  --button-hover: #444;
-  --line: #20202026;
+  --button-hover: #1e293b;
+  --line: #0f172a33;
 }
 /* Content-driven layout: no fixed content heights or overflow masking. */
 * {

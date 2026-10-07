@@ -1,29 +1,29 @@
 /* Optional enhancements share the site's typography and spacing system. */
 :root {
   color-scheme: light;
-  --page-bg: #fff;
-  --panel: #f5f6f8;
-  --edge: #c4c7cb;
-  --tool-ink: #292d39;
-  --tool-bg: #fff;
-  --tool-accent: #292d39;
-  --tool-selected: #fff;
+  --page-bg: #f8fafc;
+  --panel: #e2e8f0;
+  --edge: #334155;
+  --tool-ink: #0f172a;
+  --tool-bg: #ffffff;
+  --tool-accent: #1e1b4b;
+  --tool-selected: #ffffff;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
-  --page-bg: #101311;
-  --ink: #f2f3ef;
-  --muted: #b7c0b9;
-  --soft: #171c18;
-  --panel: #202720;
-  --edge: #475248;
-  --accent-text: #f4d94e;
-  --focus: #f4d94e;
-  --line: #ffffff26;
-  --tool-ink: #f2f3ef;
-  --tool-bg: #202720;
-  --tool-accent: #f4d94e;
-  --tool-selected: #141610;
+  --page-bg: #0b100c;
+  --ink: #f8faf8;
+  --muted: #d7e0d8;
+  --soft: #141a15;
+  --panel: #1c241e;
+  --edge: #8a9a8c;
+  --accent-text: #ffe566;
+  --focus: #ffe566;
+  --line: #ffffff33;
+  --tool-ink: #f8faf8;
+  --tool-bg: #1c241e;
+  --tool-accent: #ffe566;
+  --tool-selected: #101410;
 }
 body {
   background: var(--page-bg);
@@ -217,56 +217,170 @@ html {
 }
 
 html[data-theme="dark"] {
-  --button-bg: #f4d94e;
-  --button-text: #171910;
-  --button-hover: #ffe97a;
+  --button-bg: #ffe566;
+  --button-text: #0b100d;
+  --button-hover: #fff1a0;
 }
 html[data-theme="dark"] .hero {
   background: radial-gradient(
     ellipse at 50% 0%,
-    #38391c 0%,
-    #191e17 48%,
-    #101311 100%
+    #3f4218 0%,
+    #151a14 48%,
+    #0b100d 100%
   );
   border-bottom: 1px solid var(--edge);
 }
 html[data-theme="dark"] .hero h1 {
-  color: #f4d94e;
+  color: #ffe566;
 }
 html[data-theme="dark"] .hero .eyebrow {
-  color: #e9d877;
+  color: #fff1a0;
+  font-weight: 700;
 }
 html[data-theme="dark"] .hero-content > p {
-  color: var(--muted);
+  color: #e2e8e3;
 }
 html[data-theme="dark"] .feature > i,
 html[data-theme="dark"] .price-card > i {
-  color: #f4d94e;
+  color: #ffe566;
+}
+html[data-theme="dark"] .feature h3,
+html[data-theme="dark"] .section-heading h2,
+html[data-theme="dark"] .price-card h3,
+html[data-theme="dark"] .work-card h3,
+html[data-theme="dark"] .team-card h3 {
+  color: #f8fafc;
+}
+html[data-theme="dark"] .feature p,
+html[data-theme="dark"] .section-heading p,
+html[data-theme="dark"] .price-card li,
+html[data-theme="dark"] .work-card p {
+  color: #d1d9d2;
 }
 html[data-theme="dark"] .price-card {
   background: var(--panel);
-  border-color: var(--edge);
+  border: 1px solid #8b968c;
 }
 html[data-theme="dark"] .price-card.featured {
-  border-color: #f4d94e;
-  box-shadow: 5px 5px 0 #f4d94e;
+  border-color: #ffe566;
+  box-shadow: 5px 5px 0 #ffe566;
 }
 html[data-theme="dark"] .price-card .price {
-  color: var(--ink);
+  color: #f8fafc;
 }
 html[data-theme="dark"] .stats-grid {
-  border-color: var(--edge);
+  border-color: #8b968c;
 }
 html[data-theme="dark"] input,
 html[data-theme="dark"] textarea {
   background: #111710;
-  color: var(--ink);
-  border-color: #667265;
+  color: #f8fafc;
+  border: 1.5px solid #9aa79c;
 }
 html[data-theme="dark"] input::placeholder,
 html[data-theme="dark"] textarea::placeholder {
-  color: #aeb8ad;
+  color: #c5cfc6;
+  opacity: 1;
 }
 html[data-theme="dark"] .site-footer {
-  background: #0c100d;
+  background: #070a08;
+  border-top: 1px solid #8b968c;
+}
+html[data-theme="dark"] .theme-toggle,
+html[data-theme="dark"] .back-to-top,
+html[data-theme="dark"] .work-filters button {
+  border-color: #9aa79c;
+  color: #f8fafc;
+}
+html[data-theme="dark"] .work-filters button[aria-pressed="true"] {
+  background: #ffe566;
+  border-color: #ffe566;
+  color: #0b100d;
+  font-weight: 700;
+}
+
+/* Light theme: maximum readability and control contrast */
+html:not([data-theme="dark"]) body {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+html:not([data-theme="dark"]) p {
+  color: #1e293b;
+}
+html:not([data-theme="dark"]) .section-heading h2,
+html:not([data-theme="dark"]) .feature h3,
+html:not([data-theme="dark"]) .price-card h3,
+html:not([data-theme="dark"]) .work-card h3,
+html:not([data-theme="dark"]) .team-card h3,
+html:not([data-theme="dark"]) h1,
+html:not([data-theme="dark"]) h2,
+html:not([data-theme="dark"]) h3 {
+  color: #020617;
+}
+html:not([data-theme="dark"]) .hero {
+  background: linear-gradient(160deg, #fde047 0%, #facc15 42%, #eab308 100%);
+  border-bottom: 2px solid #1e1b4b;
+}
+html:not([data-theme="dark"]) .hero h1 {
+  color: #0f172a;
+}
+html:not([data-theme="dark"]) .hero .eyebrow,
+html:not([data-theme="dark"]) .hero-content > p {
+  color: #1e293b;
+  font-weight: 600;
+}
+html:not([data-theme="dark"]) .theme-toggle,
+html:not([data-theme="dark"]) .menu-toggle,
+html:not([data-theme="dark"]) .back-to-top,
+html:not([data-theme="dark"]) .work-filters button,
+html:not([data-theme="dark"]) .button {
+  border: 1.5px solid #0f172a;
+  color: #020617;
+  font-weight: 700;
+}
+html:not([data-theme="dark"]) .button {
+  background: #1e1b4b;
+  color: #ffffff;
+  border-color: #1e1b4b;
+}
+html:not([data-theme="dark"]) .button:hover {
+  background: #312e81;
+}
+html:not([data-theme="dark"]) .work-filters button[aria-pressed="true"] {
+  background: #1e1b4b;
+  border-color: #1e1b4b;
+  color: #ffffff;
+}
+html:not([data-theme="dark"]) .price-card,
+html:not([data-theme="dark"]) .feature,
+html:not([data-theme="dark"]) .work-card,
+html:not([data-theme="dark"]) .team-card,
+html:not([data-theme="dark"]) .contact-form,
+html:not([data-theme="dark"]) .project-notes {
+  border-color: #334155;
+}
+html:not([data-theme="dark"]) .price-card,
+html:not([data-theme="dark"]) .team-card {
+  background: #ffffff;
+  border: 1.5px solid #334155;
+}
+html:not([data-theme="dark"]) .price-card.featured {
+  border-color: #1e1b4b;
+  box-shadow: 5px 5px 0 #1e1b4b;
+}
+html:not([data-theme="dark"]) input,
+html:not([data-theme="dark"]) textarea {
+  border: 1.5px solid #1e293b;
+  background: #ffffff;
+  color: #020617;
+}
+html:not([data-theme="dark"]) input::placeholder,
+html:not([data-theme="dark"]) textarea::placeholder {
+  color: #475569;
+  opacity: 1;
+}
+html:not([data-theme="dark"]) .site-footer {
+  background: #e2e8f0;
+  border-top: 2px solid #1e293b;
+  color: #0f172a;
 }
