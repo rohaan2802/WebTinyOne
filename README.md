@@ -122,64 +122,86 @@ Sample team, pricing, statistics, and testimonial copy is **illustrative**. Form
 
 ## Features explained in depth
 
-### Responsive composition
+### 1. Hero / landing
 
-Layouts use fluid type (`clamp`), flexible grids, and a wrapping header. Navigation collapses into a menu control before links become cramped. Images stay max-width constrained. Content is not locked into fixed viewport heights that clip on short screens.
+The first viewport establishes brand presence with eyebrow text, a large fluid headline, supporting paragraph, and CTAs. Typography uses `clamp()` so the hero stays balanced from mid-width to large desktop without awkward wrapping. Dark mode uses yellow accent headlines; light mode keeps near-black type on a bright yellow plane for maximum visibility.
 
-### Dark and light themes
+### 2. Navigation and theme toggle
 
-- Default theme is **dark**
-- Toggle switches `data-theme` on `<html>`
-- Preference is saved in `localStorage` under `WebTinyOne-theme`
-- `theme-init.js` applies the saved theme **before** paint to reduce flash
-- If storage is blocked, the site still runs with the default theme
-- Both themes use stronger contrast for text, borders, buttons, inputs, and filters
+Primary anchors jump to Features, Pricing, Work, Team, Story, Contact, and The build. On narrower widths the menu collapses before links crowd. The theme button toggles `data-theme` on `<html>`, updates its icon/label, and writes `WebTinyOne-theme` to `localStorage`. `theme-init.js` restores the preference before first paint to reduce flash. If storage is blocked, the session still toggles normally.
 
-### Work gallery filters
+### 3. Features section
 
-Filter buttons use `aria-pressed` and a live status region. Categories include All, Portraits, and Creative studies. Filtering is client-side only and keeps keyboard focus usable.
+Six feature articles use icon + heading + paragraph to communicate product strengths (responsive layout, HTML5 foundations, creativity, accessibility-minded structure, and related points). Cards keep consistent rhythm and remain readable in both themes.
 
-### Image viewer (`<dialog>`)
+### 4. Pricing plans
+
+Illustrative plan cards support comparison UX. A featured plan is emphasized with a stronger border/shadow treatment without hiding alternatives. Prices and bullets are demo content only.
+
+### 5. Work gallery
+
+A responsive project grid shows imagery, titles, and category metadata (`Portraits`, `Creative studies`). Cards remain usable as normal links when JavaScript is unavailable (progressive enhancement).
+
+### 6. Gallery filters
+
+Filter chips use `aria-pressed` and a live status line (`Showing X of Y projects`). Filtering only hides cards; it does not destroy DOM nodes, so keyboard order and viewer indexing stay predictable.
+
+### 7. Accessible image viewer (`<dialog>`)
 
 Project previews open a native dialog viewer with:
 
 - Current image and title
-- Position indicator (for example 1 of 8)
+- Position indicator (for example `1 / 8`)
 - Previous / next controls
 - Close button and Escape
-- Click-outside-to-close behavior
+- Backdrop dismiss
 - Body scroll lock while open
 
-Without JavaScript, preview links still behave as normal image links.
+Without the dialog API / JS, preview links still behave as normal image links.
 
-### Reading progress
+### 8. Team section
 
-A thin bar tracks scroll depth through the page. It is decorative (`aria-hidden`) and updates from `presentation.js`.
+People cards with portrait, name, role, and short bio provide a social-proof block. Content is illustrative template data for portfolio presentation.
 
-### Back to top
+### 9. Story and statistics
 
-After scrolling, a control returns focus-friendly navigation to the top of the page.
+A narrative story block is paired with a stats strip (products, hours, customers, ideas) for quick scanning of scale/outcomes.
+
+### 10. Contact form
+
+Contact details sit beside a local demo form (name, email, message). Validation runs in the browser with status messaging (`aria-live`). Nothing is POSTed or stored — production needs a backend or form service.
+
+### 11. Project notes (The build)
+
+Portfolio-facing documentation inside the page itself: scope, stack, interaction goals, and links. Useful for recruiters who open the live demo first.
+
+### 12. Native FAQ details
+
+FAQ entries use native `<details>` / `<summary>` so they work without a custom accordion library and remain accessible with keyboard and assistive tech defaults.
+
+### 13. Reading progress and back-to-top
+
+`presentation.js` scales a thin top progress bar with scroll depth (decorative, `aria-hidden`). After scrolling, a floating back-to-top control returns users to the hero with focus-friendly navigation.
+
+### 14. Light theme contrast
+
+Light mode prioritizes maximum visibility: near-black ink, slate borders, white cards, indigo buttons, and high-contrast inputs/filters so washed-out gray-on-white UI is avoided.
+
+### 15. Footer and newsletter
+
+Footer brand, nav, attribution, and a newsletter demo field with local validation only. Same no-server rule as the contact form.
+
+### Responsive composition
+
+Layouts use fluid type, flexible grids, and a wrapping header. Images stay max-width constrained. Content is not locked into fixed viewport heights that clip on short screens.
 
 ### Active section indication
 
 As the user scrolls, presentation logic can highlight the current section context for orientation (paired with smooth scrolling and scroll padding).
 
-### Native FAQ / project notes
-
-The **The build** section documents the study and uses native `<details>` elements so FAQ content works without a custom JS accordion.
-
 ### Considered motion
 
 Entrance/reveal motion is short and cancellable. When the OS requests reduced motion, reveals and hover movement settle so content remains usable without animation.
-
-### Demo forms
-
-Contact and newsletter forms:
-
-- Validate locally
-- Surface status messages with `aria-live`
-- Do **not** POST to a server
-- Need a backend or form service for production use
 
 ### Progressive enhancement
 
@@ -188,6 +210,13 @@ Contact and newsletter forms:
 - No-JS navigation and image links still work
 - Theme fallback when `localStorage` throws
 - Reduced-motion path when preferred
+
+### Theme contrast summary
+
+| Mode | Goal | Key choices |
+| --- | --- | --- |
+| Light | Maximum visibility | Near-black text, strong borders, white surfaces, indigo CTAs, clear inputs |
+| Dark | High-contrast night UI | Deep base, bright yellow accents, light body text, stronger form borders |
 
 ---
 
