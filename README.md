@@ -86,9 +86,9 @@ Expandable `<details>` / `<summary>` FAQ for scope, testing, and how to run the 
 
 ![FAQ details](docs/screenshots/12-faq-details.png)
 
-### 13. Reading progress and back-to-top
+### 13. Reading progress
 
-Scroll-linked reading progress bar at the top and a back-to-top control after scrolling.
+A thin top progress bar tracks scroll depth (shown here over the site header). A floating back-to-top control also appears after scrolling on the live page.
 
 ![Reading progress](docs/screenshots/13-reading-progress.png)
 
